@@ -26,6 +26,12 @@ class PID {
   void UpdateError(double cte);
 
   /**
+   * Get the PID control.
+   * @ output the control signal.
+   */
+  double Control();
+  
+  /**
    * Calculate the total PID error.
    * @output The total PID error
    */
@@ -39,12 +45,16 @@ class PID {
   double i_error;
   double d_error;
 
+  double prev_error;
+  double total_error;
+
   /**
    * PID Coefficients
    */ 
   double Kp;
   double Ki;
   double Kd;
+
 };
 
 #endif  // PID_H
